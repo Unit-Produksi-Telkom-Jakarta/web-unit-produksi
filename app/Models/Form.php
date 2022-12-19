@@ -16,6 +16,6 @@ class Form extends Model
         'no_handphone',
         'alamat',
         'pic',
-        'kendala',
+        'request',
     ];
 }

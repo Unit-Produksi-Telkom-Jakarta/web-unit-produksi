@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('no_handphone');
             $table->string('alamat');
             $table->string('pic');
-            $table->string('kendala')->nullable();
+            $table->string('request');
             $table->string('mulai')->nullable();
             $table->string('selesai')->nullable();
-            $table->string('keterangna')->nullable();
+            $table->string('keterangan')->nullable();
             $table->string('status')->nullable();
             $table->string('jumlah')->nullable();
             $table->timestamps();
