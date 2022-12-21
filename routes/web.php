@@ -21,6 +21,10 @@ Route::get('/form', function(){
     return view('form');
 })->name('form');
 
+Route::get('/admin-import-export', function(){
+    return view('admin-import-export');
+})->name('admin-import-export');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
