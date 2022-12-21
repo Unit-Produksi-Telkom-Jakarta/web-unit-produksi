@@ -17,5 +17,10 @@ class Form extends Model
         'alamat',
         'pic',
         'request',
+        'mulai',
+        'selesai',
+        'status',
+        'keterangan',
+        'jumlah',
     ];
 }
