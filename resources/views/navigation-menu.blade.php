@@ -8,6 +8,9 @@
                     <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
+                    <div class=" ml-6 font-bold">
+                        {{ __('SMK Telkom Jakarta')}}
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->
