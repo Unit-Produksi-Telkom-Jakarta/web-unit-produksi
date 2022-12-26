@@ -38,7 +38,7 @@
         </div>
         <div class="form-group">
             <label for="client_name" class="form-label inline-block mb-2 text-gray-700">Jenis Servis</label>
-            <select wire:model="pic" class="form-select appearance-none w-auto ml-10 border border-solid border-gray-300 rounded m-3 w-72">
+            <select wire:model="pic" class="form-select appearance-none w-72 ml-10 border border-solid border-gray-300 rounded m-3">
                 <option selected>Open this select menu</option>
                 <option value="website">Website</option>
                 <option value="photo">Photo Shoot</option>
