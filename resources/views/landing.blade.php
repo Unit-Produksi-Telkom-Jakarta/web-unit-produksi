@@ -22,8 +22,14 @@
             <div class="flex-none hidden lg:block">
               <ul class="menu menu-horizontal">
                 <!-- Navbar menu content here -->
-                <li><a>Navbar Item 1</a></li>
-                <li><a>Navbar Item 2</a></li>
+                @auth
+                    <li><a href="{{ url('/dashboard') }}" >Dashboard</a></li>
+                @else
+                    <li><a href="{{ route('login') }}" >Log in</a></li>
+                    @if (Route::has('register'))
+                        <li><a href="{{ route('register') }}" >Register</a></li>
+                    @endif
+                @endauth
               </ul>
             </div>
           </div>
