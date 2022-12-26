@@ -12,33 +12,29 @@
     </div>
     @endif
     <div class="p-6 rounded-lg shadow-lg w-full">
-        <div class="form-group">
-            <label for="client_name" class="form-label inline-block mb-2 text-gray-700">Nama</label>
-            <input wire:model="name" type="text" class="form-control text-base py-1.5 px-3 w-96 ml-20 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none border 
-            border-solid border-gray-300 rounded m-3" id="client_name" placeholder="Nama">
+        <div class="form-group my-4">
+            <label for="client_name" class="form-label inline-block text-gray-700">Nama</label>
+            <input wire:model="name" type="text" placeholder="Nama" class="input w-full max-w-xs mx-20" />
             @error('name') <span class="error">{{ $message }}</span> @enderror
         </div>
-        <div class="form-group">
-            <label for="client_email" class="form-label inline-block mb-2 mr-1 text-gray-700">Email</label>
-            <input wire:model="email" type="text" class="form-control text-base py-1.5 px-3 w-96 ml-20 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none border 
-            border-solid border-gray-300 rounded m-3" id="client_email" placeholder="Email">
+        <div class="form-group my-4">
+            <label for="client_email" class="form-label inline-block mr-1 text-gray-700">Email</label>
+            <input wire:model="email" type="text" placeholder="Email" class="input w-full max-w-xs mx-20" />
             @error('email') <span class="error">{{ $message }}</span> @enderror
         </div>
-        <div class="form-group">
-            <label for="no_handphone" class="form-label inline-block mb-2 text-gray-700">No. Handphone</label>
-            <input wire:model="no_handphone" type="text" class="form-control text-base py-1.5 px-3 w-96 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none border 
-            border-solid border-gray-300 rounded m-3" id="no_telfon" placeholder="No. Handphone" maxlength="12">
+        <div class="form-group my-4">
+            <label for="no_handphone" class="form-label inline-block text-gray-700">No. Handphone</label>
+            <input wire:model="no_handphone" type="text" placeholder="No. Handphone" class="input w-full max-w-xs mx-3" maxlength="12" />
             @error('no_handphone') <span class="error">{{ $message }}</span> @enderror
         </div>
-        <div class="form-group">
-            <label for="almt_rumah" class="form-label inline-block mb-2 text-gray-700">Alamat Rumah</label>
-            <input wire:model="alamat" type="text" class="form-control text-base py-1.5 px-3 w-96 ml-4 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none border 
-            border-solid border-gray-300 rounded m-3" id="almt_rumah" placeholder="Alamat Rumah">
+        <div class="form-group my-4">
+            <label for="almt_rumah" class="form-label inline-block text-gray-700">Alamat Rumah</label>
+            <input wire:model="alamat" type="text" placeholder="Alamat" class="input w-full max-w-xs mx-4" />
             @error('alamat') <span class="error">{{ $message }}</span> @enderror
         </div>
-        <div class="form-group">
-            <label for="client_name" class="form-label inline-block mb-2 text-gray-700">Jenis Servis</label>
-            <select wire:model="pic" class="form-select appearance-none w-72 ml-10 border border-solid border-gray-300 rounded m-3">
+        <div class="form-group my-4">
+            <label for="client_name" class="form-label inline-block text-gray-700 mr-10">Jenis Servis</label>
+            <select class="select w-full max-w-xs mx-15" wire:model="pic">
                 <option selected>Open this select menu</option>
                 <option value="website">Website</option>
                 <option value="photo">Photo Shoot</option>
@@ -46,10 +42,41 @@
             </select>
             @error('pic') <span class="error">{{ $message }}</span> @enderror
         </div>
-        <div class="form-group">
-            <label for="request" class="form-label inline-block mb-2 text-gray-700 mr-10">Request</label>
-            <textarea wire:model="request" id="request" rows="3" class="form-control w-72 ml-6 border border-solid border-gray-300" placeholder="request" value="null"></textarea>
+        <div class="form-group my-4 w-full">
+            <label for="request" class="form-label inline-block text-gray-700 mr-10">Request</label>
+            <textarea class="textarea mx-6 w-80" wire:model="request" placeholder="Request"></textarea>
             @error('request') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <div class="form-group my-4">
+            <label for="estm-ml" class="form-label inline-block text-gray-700">Estimasi Mulai</label>
+            <input wire:model="estimasi_mulai" type="date" class="input w-full max-w-xs mx-5" />
+            @error('estimasi_mulai') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <div class="form-group my-4">
+            <label for="estm-sls" class="form-label inline-block text-gray-700">Estimasi Selesai</label>
+            <input wire:model="estimasi_selesai" type="date" class="input w-full max-w-xs mx-2" />
+            @error('estimasi_selesai') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <div class="form-group my-4">
+            <label for="keterangan" class="form-label inline-block text-gray-700">Keterangan</label>
+            <input wire:model="keterangan" type="text" placeholder="Keterangan" class="input w-full max-w-xs mx-10" id="keterangan"/>
+            @error('keterangan') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <div class="form-group my-4">
+            <label for="status" class="form-label inline-block text-gray-700 mr-10">Status</label>
+            <select class="select w-full max-w-xs mx-9" wire:model="status" id="status">
+                <option selected>Open this select menu</option>
+                <option value="pending">Pending</option>
+                <option value="selesai">Selesai</option>
+                <option value="on_proses">On Proses</option>
+                <option value="cancel">Cancel</option>
+            </select>
+            @error('status') <span class="error">{{ $message }}</span> @enderror
+        </div>
+        <div class="form-group my-4">
+            <label for="jumlah" class="form-label inline-block mr-1 text-gray-700 mr-8">Jumlah</label>
+            <input wire:model="jumlah" type="text" placeholder="Jumlah IDR" class="input w-full max-w-xs mx-10" />
+            @error('jumlah') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group flex justify-end">
             <button wire:click="inputData" class="px-4 py-2 bg-blue-600 text-white hover:bg-blue-400 rounded-md">Submit</button>

@@ -14,15 +14,24 @@ class FormPage extends Component
     public $email;
     public $no_handphone;
     public $alamat;
+    public $estimasi_mulai;
+    public $estimasi_selesai;
     public $pic;
     public $request;
+    public $keterangan;
+    public $status;
+    public $jumlah;
 
     protected $rules=[
         'name' =>'required|min:6',
         'email' => 'required|email',
         'no_handphone' => 'required|min:11|max:12',
         'alamat' => 'required|min:10',
+        'estimasi_mulai' => 'required',
+        'estimasi_selesai' => 'required',
         'pic' => 'required',
+        'keterangan' => 'required',
+        'status' => 'required',
         'request' => 'required'
     ];
 
@@ -38,13 +47,17 @@ class FormPage extends Component
         $validatedData = $this->validate();
 
         Form::create([
-            'client_id' => Auth::id(),
             'client_name' => $this->name,
             'client_email' => $this->email,
             'no_handphone' => $this->no_handphone,
             'alamat' => $this->alamat,
+            'mulai' => $this->estimasi_mulai,
+            'selesai' => $this->estimasi_selesai,
             'pic' => $this->pic,
-            'request' => $this->request
+            'request' => $this->request,
+            'keterangan' => $this->keterangan,
+            'status' => $this->status,
+            'jumlah' => $this->jumlah,
         ]);
         session()->flash('message', 'Your request is being processed!');
 
@@ -52,8 +65,13 @@ class FormPage extends Component
         $this->email = "";
         $this->no_handphone = "";
         $this->alamat = "";
+        $this->estimasi_mulai = "";
+        $this->estimasi_selesai = "";
         $this->pic = "";
         $this->request = "";
+        $this->keterangan = "";
+        $this->status = "";
+        $this->jumlah = "";
     }
 
     public function render(){
