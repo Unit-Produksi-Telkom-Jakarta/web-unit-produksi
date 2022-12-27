@@ -22,11 +22,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $i = 1;
-        while ($i <= 1000) {
-            Form::factory()->create([
-                'client_id' => $i++,
-            ]);
-        }
+            Form::factory(1000)->create();
     }
 }

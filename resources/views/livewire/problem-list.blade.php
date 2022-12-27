@@ -1,4 +1,5 @@
 <div class="overflow-x-auto">
+
     <table class="table table-compact w-full">
       <thead>
         <tr>
@@ -17,7 +18,12 @@
         </tr>
       </thead> 
       <tbody>
-        @foreach ($data as $d)
+      @if (count($data) <= 0)
+        <tr>
+          <td class="text-center" colspan="12">No Data</td>
+        </tr>
+      @else
+      @foreach ($data as $d)
         <tr>
             <th>{{ $loop->iteration }}</th> 
             <td>{{ $d['client_name'] }}</td> 
@@ -33,6 +39,7 @@
             <td>{{ $d['jumlah'] }}</td>
         </tr>
         @endforeach
+        @endif
     </tbody> 
     <tfoot>
         <tr>
@@ -54,4 +61,4 @@
     <div>
       {{ $data->links() }}
     </div>
-</div>
+  </div>
