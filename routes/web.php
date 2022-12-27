@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\FormPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/form', function(){
-    return view('form');
+   return view('form');
 })->name('form');
 
 Route::get('/admin-import-export', function(){
