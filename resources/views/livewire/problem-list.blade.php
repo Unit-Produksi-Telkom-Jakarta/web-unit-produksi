@@ -49,7 +49,7 @@
               <td>{{ $d['selesai'] }}</td>
               <td>{{ $d['keterangan'] }}</td>
               <td>{{ $d['status'] }}</td>
-              <td>{{ $d['jumlah'] }}</td>
+              <td>{{ "Rp." . number_format($d['jumlah'],2,',','.') }}</td>
           </tr>
           @endforeach
           @endif

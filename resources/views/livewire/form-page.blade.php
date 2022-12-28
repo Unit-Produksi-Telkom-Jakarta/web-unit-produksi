@@ -75,7 +75,7 @@
         </div>
         <div class="form-group my-4">
             <label for="jumlah" class="form-label inline-block mr-1 text-gray-700 mr-8">Jumlah</label>
-            <input wire:model="jumlah" type="text" placeholder="Jumlah IDR" class="input w-full max-w-xs mx-10" />
+            <input wire:model="jumlah" type="number" placeholder="Jumlah IDR" class="input w-full max-w-xs mx-10" />
             @error('jumlah') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group flex justify-end">

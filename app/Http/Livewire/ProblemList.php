@@ -10,7 +10,7 @@ class ProblemList extends Component
 {
     use WithPagination;
 
-    public $search = 'cancel';
+    public $search = '';
     public $orderBy = 'latest';
 
     public function render()
