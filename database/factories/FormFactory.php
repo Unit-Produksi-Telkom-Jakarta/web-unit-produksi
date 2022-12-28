@@ -26,7 +26,7 @@ class FormFactory extends Factory
             'mulai' => fake()->date('m/d/Y'),
             'selesai' => fake()->date('m/d/Y'),
             'keterangan' => fake()->sentence((rand(3,10))),
-            'status' => rand(0, 1) ? 'Selesai' : 'Cancel',
+            'status' => rand(0, 1) ? 'selesai' : 'cancel',
             'jumlah' => rand(70000, 100000000)
         ];
     }
