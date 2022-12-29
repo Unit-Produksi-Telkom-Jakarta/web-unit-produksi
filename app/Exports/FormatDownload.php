@@ -19,12 +19,11 @@ class FormatDownload implements FromQuery, WithHeadings, WithStyles
 
     public function query()
     {
-        return Form::query()->select('id', 'client_name', 'client_email', 'no_handphone', 'alamat', 'request', 'pic', 'mulai', 'selesai', 'keterangan', 'status', 'jumlah');
+        return Form::query()->select('client_name', 'client_email', 'no_handphone', 'alamat', 'request', 'pic', 'mulai', 'selesai', 'keterangan', 'status', 'jumlah');
     }
 
     public function headings(): array{
         return [
-            '#',
             'Name',
             'Email',
             'No Handphone',
