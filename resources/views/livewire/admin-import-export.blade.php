@@ -10,16 +10,20 @@
         </div>
     </div>
     @endif
-    <div class="p-6 rounded-lg shadow-lg w-full">
-        <div class="form-group">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 
-            dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
-            id="file_input" type="file" wire:model="file">
-            @error('file') <span class="error">{{ $message }}</span> @enderror
+    <div class="form-control flex w-full p-4">
+        <label class="label w-full ">
+            <span class="flex flex-col label-text text-yellow-600">File yang ingin di import diharuskan ber-ekstensi .xlsx</span>
+        </label>
+        <div class="flex">
+            <input type="file" class="flex flex-row w-full file-input file-input-md file-input-bordered max-w-screen-xl"/>
+            <button wire:click="importXlsx" class="flex btn ml-4 w-28 h-10">Import</button>
         </div>
-        <div class="form-group flex justify-end">
-            <button wire:click="import" class="px-4 py-2 bg-blue-600 text-white hover:bg-blue-400 rounded-md">Submit</button>
+        <label class="label w-full ">
+            <span class="flex flex-col label-text text-yellow-600">Format row excel yang ingin di import diharuskan mengikuti hasil export</span>
+        </label>
+        <div class="flex">
+            <button wire:click="exportXlsx" class="flex grid btn w-28 h-10">Export</button>
+            <button wire:click="formatDownload" class="flex btn ml-4 w-28 h-10 text-xs leading-normal ">Download Format</button>
         </div>
     </div>
 </div>
