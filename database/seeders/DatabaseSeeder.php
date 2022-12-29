@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-            Form::factory(1000)->create();
+            Form::factory(100)->create();
     }
 }

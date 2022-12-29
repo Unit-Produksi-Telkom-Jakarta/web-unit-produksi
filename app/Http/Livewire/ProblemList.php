@@ -10,10 +10,23 @@ class ProblemList extends Component
 {
     use WithPagination;
 
+    public $search = '';
+    public $orderBy = 'latest';
+
     public function render()
     {
+        sleep(1);
+        $problems = new Form();
+
+        switch ($this->orderBy){
+            case 'latest':
+                $problems = $problems->orderBy('id', 'desc');
+            break;
+            default:
+                $problems = $problems->orderBy('id','asc');
+        }
         return view('livewire.problem-list',[
-            'data' => Form::paginate(20)
+            'data' => $problems->where('status', 'LIKE', "%{$this->search}%")->paginate(20)
         ]);
     }
 }
