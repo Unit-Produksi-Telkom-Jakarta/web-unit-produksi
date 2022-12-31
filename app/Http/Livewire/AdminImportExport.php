@@ -25,12 +25,19 @@ class AdminImportExport extends Component
     }
 
     public function importXlsx(){
-        $this->dataToUpload->store('formImport');
-        $filename = $this->dataToUpload->hashName();
+        $file=$this->dataToUpload;
+        // $filename=$file->hashName();
 
-        Excel::import(new FormImport, storage_path("formImport/$filename"));
+        $save=$file->storeAs('/formImport',$file->hashName());
 
+        // $filename = $this->dataToUpload->hashName();
+        // dd($filename);
+        if($save){
+            Excel::import(new FormImport, $this->dataToUpload);
+            return redirect('/problem-list');
+        }
         $this->dataToUpload = null;
+        
     }
 
     public function render()

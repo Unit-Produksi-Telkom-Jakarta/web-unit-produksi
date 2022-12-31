@@ -15,7 +15,7 @@
             <span class="flex flex-col label-text text-yellow-600">File yang ingin di import diharuskan ber-ekstensi .xlsx</span>
         </label>
         <div class="flex">
-            <input type="file" class="flex flex-row w-full file-input file-input-md file-input-bordered max-w-screen-xl"/>
+            <input type="file" wire:model="dataToUpload" class="flex flex-row w-full file-input file-input-md file-input-bordered max-w-screen-xl"/>
             <button wire:click="importXlsx" class="flex btn ml-4 w-28 h-10">Import</button>
         </div>
         <label class="label w-full ">
