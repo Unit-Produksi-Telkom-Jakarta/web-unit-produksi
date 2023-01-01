@@ -3,9 +3,11 @@
 namespace App\Imports;
 
 use App\Models\Form;
-use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
+use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 class FormImport implements ToModel, WithHeadingRow
 {
@@ -26,8 +28,8 @@ class FormImport implements ToModel, WithHeadingRow
             'alamat'            => $row['customer_address'],
             'request'           => $row['problem'],
             'pic'               => $row['pic'],
-            'mulai'             => date('Y-m-d H:i:s',$row['start']),
-            'selesai'           => date('Y-m-d H:i:s',$row['end']),
+            'mulai'             => Date::excelToDateTimeObject($row['start']),
+            'selesai'           => Date::excelToDateTimeObject($row['end']),
             'keterangan'        => $row['description'],
             'status'            => $row['status'],
             'jumlah'            => $row['price']
