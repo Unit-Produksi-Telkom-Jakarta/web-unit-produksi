@@ -2,28 +2,42 @@
 
 namespace App\Http\Livewire;
 
-use App\Imports\UserImport;
+use App\Exports\FormatDownload;
+use App\Exports\FormExport;
+use App\Imports\FormImport;
 use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
 
-
 class AdminImportExport extends Component
 {
     use WithFileUploads;
 
-    public $file;
+    public $dataToUpload;
 
-    public function import(){
-        // $this->validate([
+    public function formatDownload(){
+        return(new FormatDownload)->download('problem-list.xlsx');
+    }
 
-        //     'file' => 'file|mimes:xlsx|max:5120', // 1MB Max
+    public function exportXlsx(){
+        return(new FormExport)->download('exported-problem-list.xlsx');
+    }
 
-        // ]);
+    public function importXlsx(){
+        $file=$this->dataToUpload;
+        // $filename=$file->hashName();
 
-        Excel::import(new UserImport, request()->file($this->file));
-        session()->flash('message', 'Data Berhasil di Import!');
+        $save=$file->storeAs('/formImport',$file->hashName());
+
+        // $filename = $this->dataToUpload->hashName();
+        // dd($filename);
+        if($save){
+            Excel::import(new FormImport, $this->dataToUpload);
+            return redirect('/problem-list');
+        }
+        $this->dataToUpload = null;
+        
     }
 
     public function render()
