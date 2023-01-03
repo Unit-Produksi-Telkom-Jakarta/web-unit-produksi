@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\FormPage;
 use Illuminate\Support\Facades\Route;
+use App\Models\Form;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,10 @@ Route::get('/import-export', function(){
     return view('admin-import-export');
 })->name('import-export');
 
-Route::get('/invoice', function(){
-    return view('invoice');
+Route::get('/invoice/{id}', function($id){
+    $form = Form::where('id',$id)->first();
+
+    return view('invoice')->with('form',$form);
 })->name('invoice');
 
 Route::get('/problem-list', function(){

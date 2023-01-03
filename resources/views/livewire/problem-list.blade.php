@@ -28,6 +28,7 @@
             <th>Description</th>
             <th>Status</th>
             <th>Price</th>
+            <th>Action</th>
           </tr>
         </thead> 
         <tbody>
@@ -50,6 +51,7 @@
               <td>{{ $d['keterangan'] }}</td>
               <td>{{ $d['status'] }}</td>
               <td>{{ "Rp." . number_format($d['jumlah'],2,',','.') }}</td>
+              <td><a href="invoice/{{$d['id']}}" class="btn btn-primary">Print</a></td>
           </tr>
           @endforeach
           @endif

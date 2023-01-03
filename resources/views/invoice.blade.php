@@ -55,32 +55,32 @@
         <h3 class="text-xl font-bold">BUKTI PEMESANAN</h3>
         <br>
         <label for="">Nama:</label>
-        <label for=""></label>
+        <label for="">{{$form->client_name}}</label>
         <br>
         <label for="">No.Handphone:</label>
-        <label for=""></label>
+        <label for="">{{$form->no_handphone}}</label>
         <br>
         <label for="">Email:</label>
-        <label for=""></label>
+        <label for="">{{$form->client_email}}</label>
         <br>
         <label for="">Alamat:</label>
-        <label for=""></label>
+        <label for="">{{$form->alamat}}</label>
         <br>
         <br>
         <label for="">Estimasi Mulai:</label>
-        <label for=""></label>
+        <label for="">{{$form->mulai}}</label>
         <br>
         <label for="">Estimasi Selesai:</label>
-        <label for=""></label>
+        <label for="">{{$form->selesai}}</label>
         <br>
         <label for="">Request:</label>
-        <label for=""></label>
+        <label for="">{{$form->request}}</label>
         <br>
         <br>
         <br>
         <br>
         <label for="">Kode Invoice:</label>
-        <label for=""></label>
+        <label for="">{{$form->id}}</label>
     </main>
   </div>
   <div id="invoice-button" class="m-5">
