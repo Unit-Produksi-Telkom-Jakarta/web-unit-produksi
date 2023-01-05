@@ -23,7 +23,7 @@ class ConfirmDeleteData extends ModalComponent
         $this->closeModal();
 
         $this->emit('status-change');
-        session()->flash("message", "Data dengan id $this->id berhasil di hapus.");
+        session()->flash("message", "Data berhasil di hapus.");
         return redirect()->to('/problem-list');
 
 

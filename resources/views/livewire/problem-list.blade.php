@@ -1,13 +1,13 @@
 <div class="p-2">
   <div class="flex flex-row gap-4 mb-3">
-    <select class="select drop-shadow-md w-full max-w-xs" wire:model="search">
+    <select class="w-full max-w-xs select drop-shadow-md" wire:model="search">
       <option value="" selected>Status</option>
       <option value="pending">Pending</option>
       <option value="selesai">Selesai</option>
       <option value="on_proses">On Proses</option>
       <option value="cancel">Cancel</option>
     </select>
-    <select class="select drop-shadow-md w-full max-w-xs" wire:model="orderBy">
+    <select class="w-full max-w-xs select drop-shadow-md" wire:model="orderBy">
       <option value="latest">Latest</option>
       <option value="oldest">Oldest</option>
     </select>
@@ -54,6 +54,7 @@
               <td>
                   <a href="invoice/{{$d['id']}}" class="btn btn-primary" target="_blank">Print</a>
                   <button wire:click="delete({{ $d->id }})" class="btn bg-red-600">Delete</button>
+                  <a href="update-form/{{$d['id']}}" class="btn btn-primary">Update</a>
               </td>
           </tr>
           @endforeach

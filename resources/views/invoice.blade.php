@@ -17,7 +17,7 @@
       #invoice-button {
         visibility: hidden;
       }
-      
+
       #invoice, #invoice * {
         visibility: visible;
       }
