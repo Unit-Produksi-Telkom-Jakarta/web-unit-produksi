@@ -29,4 +29,10 @@ class ProblemList extends Component
             'data' => $problems->where('status', 'LIKE', "%{$this->search}%")->paginate(20)
         ]);
     }
+
+    public function updateStatus($id){
+        $this->emit('openModal', 'update-status', [
+            'forms_id' => $id
+        ]);
+    }
 }

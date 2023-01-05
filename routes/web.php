@@ -33,6 +33,12 @@ Route::get('/invoice/{id}', function($id){
     return view('invoice')->with('form',$form);
 })->name('invoice');
 
+Route::get('/update-form/{id}', function($id){
+    $form = Form::where('id',$id)->first();
+
+    return view('update-form')->with('form',$form);
+})->name('update-form');
+
 Route::get('/problem-list', function(){
     return view('problem-list');
 })->name('problem-list');

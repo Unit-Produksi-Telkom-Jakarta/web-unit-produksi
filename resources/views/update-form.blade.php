@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,42 +39,34 @@
     }
    </style>
 <body>
-<script>
-  function test(){
-    window.print();
-  }
-</script>
+
 <main class="w-3/4 m-auto mt-10 border border-gray-200 rounded-lg shadow-xl h-1/2">
   <div id="invoice" class="w-full h-full">
-    <header class="flex justify-between align-top">
-      <img src="{{ asset('/images/gelombang.png')}}" width="200px" alt="">
-      <img src="{{ asset('/images/logo.png')}}" width="100px" alt="" srcset="">
-    </header>
     <br>
     <main class="container m-5">
         <h3 class="text-xl font-bold">BUKTI PEMESANAN</h3>
         <br>
         <label for="">Nama:</label>
-        <label for="">{{$form->client_name}}</label>
+        <input name="client_name" value="{{$form->client_name}}">
         <br>
         <label for="">No.Handphone:</label>
-        <label for="">{{$form->no_handphone}}</label>
+        <input name="client_email" value="{{$form->no_handphone}}">
         <br>
         <label for="">Email:</label>
-        <label for="">{{$form->client_email}}</label>
+        <input name="client_email" value="{{$form->client_email}}">
         <br>
         <label for="">Alamat:</label>
-        <label for="">{{$form->alamat}}</label>
+        <input name="alamat" value="{{$form->client_email}}">
         <br>
         <br>
         <label for="">Estimasi Mulai:</label>
-        <label for="">{{$form->mulai}}</label>
+        <input name="mulai" value="{{$form->mulai}}">
         <br>
         <label for="">Estimasi Selesai:</label>
-        <label for="">{{$form->selesai}}</label>
+        <input name="selesai" value="{{$form->selesai}}">
         <br>
         <label for="">Request:</label>
-        <label for="">{{$form->request}}</label>
+        <input name="request" value="{{$form->request}}">
         <br>
         <br>
         <br>
@@ -84,8 +76,23 @@
     </main>
   </div>
   <div id="invoice-button" class="flex gap-5 m-5">
-    <button class="flex justify-center mt-10 btn btn-primary" onclick="test()">Print</button>
+    <button wire:click="update" class="flex justify-center mt-10 btn btn-primary">Update</button>
   </div>
 </main>
 </body>
-</html>
+</html> --}}
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            {{ __('Problem List') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+                <livewire:update-form :form='$form'>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
