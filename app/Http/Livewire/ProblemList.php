@@ -29,4 +29,10 @@ class ProblemList extends Component
             'data' => $problems->where('status', 'LIKE', "%{$this->search}%")->paginate(20)
         ]);
     }
+
+    public function delete($id){
+        $this->emit('openModal', 'confirm-delete-data', [
+            'form_id' => $id
+        ]);
+    }
 }

@@ -13,15 +13,15 @@
     </select>
   </div>
   <div class="overflow-x-auto">
-      <table class="table table-compact w-full">
+      <table class="table table-compact w-full p-4 mb-4">
         <thead>
           <tr>
-            <th>No</th> 
-            <th>Name</th> 
-            <th>Email</th> 
-            <th>No Handphone</th> 
-            <th>Customer Address</th> 
-            <th>Problem</th> 
+            <th>No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>No Handphone</th>
+            <th>Customer Address</th>
+            <th>Problem</th>
             <th>PIC</th>
             <th>Start</th>
             <th>End</th>
@@ -30,7 +30,7 @@
             <th>Price</th>
             <th>Action</th>
           </tr>
-        </thead> 
+        </thead>
         <tbody>
         @if (count($data) <= 0)
           <tr>
@@ -39,39 +39,26 @@
         @else
         @foreach ($data as $d)
           <tr>
-              <th>{{ $loop->iteration }}</th> 
-              <td>{{ $d['client_name'] }}</td> 
-              <td>{{ $d['client_email'] }}</td> 
-              <td>{{ $d['no_handphone'] }}</td> 
-              <td>{{ $d['alamat'] }}</td> 
-              <td>{{ $d['request'] }}</td> 
-              <td>{{ $d['pic'] }}</td> 
+              <th>{{ $loop->iteration }}</th>
+              <td>{{ $d['client_name'] }}</td>
+              <td>{{ $d['client_email'] }}</td>
+              <td>{{ $d['no_handphone'] }}</td>
+              <td>{{ $d['alamat'] }}</td>
+              <td>{{ $d['request'] }}</td>
+              <td>{{ $d['pic'] }}</td>
               <td>{{ $d['mulai'] }}</td>
               <td>{{ $d['selesai'] }}</td>
               <td>{{ $d['keterangan'] }}</td>
               <td>{{ $d['status'] }}</td>
               <td>{{ "Rp." . number_format($d['jumlah'],2,',','.') }}</td>
-              <td><a href="invoice/{{$d['id']}}" class="btn btn-primary">Print</a></td>
+              <td>
+                  <a href="invoice/{{$d['id']}}" class="btn btn-primary">Print</a>
+                  <button wire:click="delete({{ $d->id }})" class="btn bg-red-600">Delete</button>
+              </td>
           </tr>
           @endforeach
           @endif
-      </tbody> 
-      <tfoot>
-          <tr>
-              <th>No</th> 
-              <th>Name</th> 
-              <th>Email</th> 
-              <th>No Handphone</th> 
-              <th>Customer Address</th> 
-              <th>Problem</th> 
-              <th>Pic</th>
-              <th>Start</th>
-              <th>End</th>
-              <th>Description</th>
-              <th>Status</th>
-              <th>Price</th>
-            </tr>
-        </tfoot>
+      </tbody>
       </table>
       <div>
         {{ $data->links() }}
