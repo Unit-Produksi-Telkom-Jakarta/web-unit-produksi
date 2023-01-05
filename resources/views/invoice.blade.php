@@ -21,70 +21,91 @@
       #invoice, #invoice * {
         visibility: visible;
       }
+
       #invoice {
         position: absolute;
         left: 0;
         top: 0;
+      }
+
+      #logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      #wave {
+        width: 400px;
       }
     }
     </style>
 </head>
    <style>
     @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;700&family=Poppins:wght@300;400;500;600;700&display=swap'); 
-    h3{
+    h1{
       font-family: 'Chivo Mono', monospace;
     }
-    label{
+    td{
       font-family: 'Chivo Mono', monospace;
     }
    </style>
 <body>
 <script>
-  function test(){
+  function printInvoice(){
     window.print();
   }
 </script>
-<main class="w-3/4 h-1/2 border border-gray-200 rounded-lg shadow-xl m-auto mt-10">
+<main class="w-3/4 h-full border border-gray-200 rounded-lg shadow-xl m-auto mt-10">
   <div id="invoice" class="w-full h-full">
     <header class="flex justify-between align-top">
-      <img src="{{ asset('/images/gelombang.png')}}" width="200px" alt="">
-      <img src="{{ asset('/images/logo.png')}}" width="100px" alt="" srcset="">
+      <img src="{{ asset('/images/gelombang.png')}}" class="md:w-[400px] w-[200px]" id="wave" alt="gelombang">
+      <img src="{{ asset('/images/logo.png')}}" class="w-[100px] h-[100px]" id="logo" alt="logo_up" srcset="">
     </header>
     <br>
-    <main class="container m-5">
-        <h3 class="text-xl font-bold">BUKTI PEMESANAN</h3>
-        <br>
-        <label for="">Nama:</label>
-        <label for="">{{$form->client_name}}</label>
-        <br>
-        <label for="">No.Handphone:</label>
-        <label for="">{{$form->no_handphone}}</label>
-        <br>
-        <label for="">Email:</label>
-        <label for="">{{$form->client_email}}</label>
-        <br>
-        <label for="">Alamat:</label>
-        <label for="">{{$form->alamat}}</label>
-        <br>
-        <br>
-        <label for="">Estimasi Mulai:</label>
-        <label for="">{{$form->mulai}}</label>
-        <br>
-        <label for="">Estimasi Selesai:</label>
-        <label for="">{{$form->selesai}}</label>
-        <br>
-        <label for="">Request:</label>
-        <label for="">{{$form->request}}</label>
-        <br>
-        <br>
-        <br>
-        <br>
-        <label for="">Kode Invoice:</label>
-        <label for="">{{$form->id}}</label>
+    <main class="p-5 w-full">
+        <h1 class="text-xl mb-5">Tanggal : {{$form->created_at->format('d-F-Y')}}</h1>
+        <h1 class="text-xl font-bold mb-5">BUKTI PEMESANAN</h1>
+        <table class="mb-10">
+          <tr>
+            <td>Nama</td>
+            <td>: {{$form->client_name}}</td>
+          </tr>
+          <tr>
+            <td>No. Handphone</td>
+            <td>: {{$form->no_handphone}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>: {{$form->client_email}}</td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td class="text-wrap">: {{$form->alamat}}</td>
+          </tr>
+          <tr>
+            <td>Estimasi Mulai</td>
+            <td>: {{$form->mulai}}</td>
+          </tr>
+          <tr>
+            <td>Estimasi Selesai</td>
+            <td>: {{$form->selesai}}</td>
+          </tr>
+          <tr>
+            <td>Request</td>
+            <td class="text-wrap">: {{$form->request}}</td>
+          </tr>
+        </table>
+        <div class="flex justify-between w-full pr-[50px]">
+          <div>Kode Invoice : {{$form->id}}</div>
+          <div class="flex flex-col">
+            <div class="mb-[80px] text-center">Petugas</div>
+            <div></div>
+            <div class="text-center">{{auth()->user()->name}}</div>
+          </div>
+        </div>
     </main>
   </div>
   <div id="invoice-button" class="m-5">
-    <button class="btn btn-primary flex justify-center mt-10" onclick="test()">print</button>
+    <button class="btn btn-primary flex justify-center mt-10" onclick="printInvoice()">print</button>
   </div>
 </main>
 </body>

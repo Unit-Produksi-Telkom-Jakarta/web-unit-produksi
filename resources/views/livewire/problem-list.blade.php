@@ -52,7 +52,7 @@
               <td>{{ $d['status'] }}</td>
               <td>{{ "Rp." . number_format($d['jumlah'],2,',','.') }}</td>
               <td>
-                  <a href="invoice/{{$d['id']}}" class="btn btn-primary">Print</a>
+                  <a href="invoice/{{$d['id']}}" class="btn btn-primary" target="_blank">Print</a>
                   <button wire:click="delete({{ $d->id }})" class="btn bg-red-600">Delete</button>
               </td>
           </tr>
