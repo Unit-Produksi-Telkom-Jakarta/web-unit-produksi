@@ -2,7 +2,7 @@
 
 use App\Http\Livewire\FormPage;
 use Illuminate\Support\Facades\Route;
-use App\Models\Form;
+use App\Http\Livewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,36 +19,17 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/form', function(){
-   return view('form');
-})->name('form');
-
 Route::get('/import-export', function(){
     return view('admin-import-export');
 })->name('import-export');
 
-Route::get('/invoice/{id}', function($id){
-    $form = Form::where('id',$id)->first();
 
-    return view('invoice')->with('form',$form);
-})->name('invoice');
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+    Route::get('/', Livewire\Pages\Admin\Dashboard::class)->name('dashboard');
 
-Route::get('/update-form/{id}', function($id){
-    $form = Form::where('id',$id)->first();
-
-    return view('update-form')->with('form',$form);
-})->name('update-form');
-
-Route::get('/problem-list', function(){
-    return view('problem-list');
-})->name('problem-list');
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::prefix('orders')->group(function () {
+        Route::get('/', Livewire\Pages\Admin\Order\Orders::class)->name('orders');
+        Route::get('/export-import', Livewire\Pages\Admin\Order\ExportImport::class)->name('export-import');
+        Route::get('/receipt/{id}', Livewire\Pages\Admin\Order\Receipt::class);
+    });
 });

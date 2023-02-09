@@ -1,6 +1,6 @@
-<div>
+<div class="">
     @csrf
-    <div class="form-control flex w-full p-4">
+    <div class="form-control w-full flex justify-center p-5">
         <label class="label w-full ">
             <span class="flex flex-col label-text text-yellow-600">File yang ingin di import diharuskan ber-ekstensi .xlsx</span>
         </label>
@@ -17,3 +17,4 @@
         </div>
     </div>
 </div>
+
