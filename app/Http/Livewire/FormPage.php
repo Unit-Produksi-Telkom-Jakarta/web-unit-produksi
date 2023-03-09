@@ -11,7 +11,7 @@ class FormPage extends Component
     public $forms;
 
     protected $rules=[
-        'forms.client_name'                 =>'required|min:6',
+        'forms.client_name'                 => 'required|min:6',
         'forms.client_email'                => 'required|email',
         'forms.no_handphone'                => 'required|min:11|max:13',
         'forms.alamat'                      => 'required|min:10',

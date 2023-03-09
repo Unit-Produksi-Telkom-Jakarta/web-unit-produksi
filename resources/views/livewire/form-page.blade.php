@@ -13,7 +13,7 @@
         </div>
         <div class="form-group my-4">
             <label for="no_handphone" class="form-label inline-block text-gray-700">No. Handphone</label>
-            <input wire:model="forms.no_handphone" type="text" placeholder="No. Handphone" class="input w-full max-w-xs mx-3" maxlength="12" />
+            <input wire:model="forms.no_handphone" type="text" placeholder="No. Handphone" class="input w-full max-w-xs mx-3" maxlength="13">
             @error('forms.no_handphone') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group my-4">
