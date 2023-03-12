@@ -35,8 +35,8 @@ class Orders extends Component
                 $orders = $orders->orderBy('id','asc');
         }
         return view('livewire.pages.admin.order.orders',[
-            'orders' => $orders->where('status', 'LIKE', "%{$this->search}%")->paginate(20)
-        ]);
+            'orders' => $orders->where('status', 'LIKE', "%{$this->search}%")->paginate(5)
+        ])->layoutData(['title' => 'Pesanan']);
     }
 
     public function create(){

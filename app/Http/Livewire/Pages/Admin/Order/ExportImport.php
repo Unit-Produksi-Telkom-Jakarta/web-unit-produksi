@@ -23,7 +23,7 @@ class ExportImport extends Component
 
     public function render()
     {
-        return view('livewire.pages.admin.order.export-import');
+        return view('livewire.pages.admin.order.export-import')->layoutData(['title' => 'Export dan Import Pesanan']);;
     }
 
     public function formatDownload(){
