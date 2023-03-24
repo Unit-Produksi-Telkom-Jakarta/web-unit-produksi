@@ -1,8 +1,8 @@
 <div class="p-5 mt-5 flex flex-col gap-5 ">
     <div class="flex items-center gap-5 w-full justify-between">
       <div class="flex justify-start gap-5">
-        <button wire:click="create()" class="btn btn-primary">Tambah Data</button>
-        <a href={{ route("orders/export-import") }} class="btn btn-primary">Export-Import</a>
+        <button wire:click="create()" class="btn btn-primary font-bold">Tambah Data</button>
+        <a href="{{ route("orders/export-import") }}" class="btn btn-primary font-bold">Export-Import</a>
       </div>
     </div>
     <div class="flex flex-col gap-2 mb-3">
@@ -61,25 +61,43 @@
             @else
             @foreach ($orders as $order)
               <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $order['id'] }}</td>
-                  <td>{{ $order['name'] }}</td>
-                  <td>{{ $order['email'] }}</td>
-                  <td>{{ $order['phone_number'] }}</td>
-                  <td class="text-wrap">{{ $order['address'] }}</td>
-                  <td>{{ $order['request'] }}</td>
-                  <td>{{ $order['pic'] }}</td>
-                  <td>{{ $order['start_estimation'] }}</td>
-                  <td>{{ $order['end_estimation'] }}</td>
-                  <td>{{ $order['description'] }}</td>
-                  <td>{{ $order['status'] }}</td>
-                  <td>{{ "Rp." . number_format($order['price'],2,',','.') }}</td>
-                  <td>
-                      <a href="orders/receipt/{{ $order->id }}" class="btn btn-primary" target="_blank">Print</a>
-                      <button wire:click="delete({{ $order->id }})" class="btn bg-red-600">Delete</button>
-                      <button wire:click="update({{ $order->id }})" class="btn">edit</button>
-                  </td>
-              </tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $order['id'] }}</td>
+                <td>{{ $order['name'] }}</td>
+                <td>{{ $order['email'] }}</td>
+                <td>{{ $order['phone_number'] }}</td>
+                <td class="text-wrap">{{ $order['address'] }}</td>
+                <td>{{ $order['request'] }}</td>
+                <td>
+                    @if($order['pic'] == 1)
+                        Multimedia
+                    @elseif($order['pic'] == 2)
+                        Repair
+                    @elseif($order['pic'] == 3)
+                        Website
+                    @endif
+                </td>
+                <td>{{ $order['start_estimation'] }}</td>
+                <td>{{ $order['end_estimation'] }}</td>
+                <td>{{ $order['description'] }}</td>
+                <td>
+                    @if($order['status'] == 0)
+                        Pending
+                    @elseif($order['status'] == 1)
+                        Selesai
+                    @elseif($order['status'] == 2)
+                        On Proses
+                    @elseif($order['status'] == 3)
+                        Cancel
+                    @endif
+                </td>
+                <td>{{ "Rp." . number_format($order['price'],2,',','.') }}</td>
+                <td>
+                    <a href="orders/receipt/{{ $order->id }}" class="btn btn-primary" target="_blank">Print</a>
+                    <button wire:click="delete({{ $order->id }})" class="btn bg-red-600">Delete</button>
+                    <button wire:click="update({{ $order->id }})" class="btn">edit</button>
+                </td>
+            </tr>
               @endforeach
               @endif
           </tbody>

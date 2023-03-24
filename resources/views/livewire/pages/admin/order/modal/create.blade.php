@@ -73,7 +73,7 @@
         <select class="select select-bordered w-full mx-15" wire:model="orders.pic">
             <option selected >Pilih Service</option>
             <option value="1">Website</option>
-            <option value="2">Photo Shoot</option>
+            <option value="2">Multimedia</option>
             <option value="3">Repair And Service</option>
         </select>
         @error('orders.pic')
