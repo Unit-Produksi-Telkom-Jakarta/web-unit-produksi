@@ -15,14 +15,14 @@ class Order extends Model
         'email',
         'phone_number',
         'address',
-        'pic',
         'employee_id',
+        'pic',
         'request',
         'start_estimation',
         'end_estimation',
         'status',
         'description',
-        'price',
+        'invoice_id',
     ];
 
     protected static function boot()

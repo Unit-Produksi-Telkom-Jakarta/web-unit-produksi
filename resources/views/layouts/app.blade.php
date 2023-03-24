@@ -59,11 +59,11 @@
                         </ul>
                       </div>
                 </div>
+                {{-- Main --}}
                 <main class="w-full bg-slate-50">
                     {{ $slot }}
                 </main>
-            <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-            
+                {{-- endMain --}}
             </div> 
             <div class="drawer-side ">
               <label for="my-drawer-2" class="drawer-overlay"></label> 

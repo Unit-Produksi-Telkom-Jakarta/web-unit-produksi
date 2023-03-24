@@ -15,18 +15,19 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id'); //pembuat 
             $table->string('name');
             $table->string('email');
             $table->string('phone_number');
             $table->string('address');
+            $table->foreignId('employee_id'); //penanggung jawab
             $table->integer('pic');
             $table->string('request');
             $table->date('start_estimation');
             $table->date('end_estimation');
             $table->string('description');
             $table->integer('status');
-            $table->integer('price');
+            $table->foreignId('invoice_id'); //invoice
             $table->timestamps();
         });
     }

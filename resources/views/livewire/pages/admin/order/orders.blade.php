@@ -85,14 +85,4 @@
     </div>
   </div>
 
-  <div class="collapse">
-    <input type="checkbox" class="w-full"/> 
-    <div class="collapse-title text-xl font-medium">
-      Click me to show/hide content
-    </div>
-    <div class="collapse-content"> 
-      <p>hello</p>
-    </div>
-  </div>
-
  
