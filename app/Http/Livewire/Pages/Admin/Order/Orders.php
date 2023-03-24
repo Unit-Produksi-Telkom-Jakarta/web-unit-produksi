@@ -21,6 +21,7 @@ class Orders extends Component
     public $dataToUpload;
     public $search = '';
     public $orderBy = 'latest';
+    public $data = false;
 
     public function render()
     {
@@ -36,11 +37,11 @@ class Orders extends Component
         }
         return view('livewire.pages.admin.order.orders',[
             'orders' => $orders->where('status', 'LIKE', "%{$this->search}%")->paginate(5)
-        ])->layoutData(['title' => 'Pesanan']);
+        ])->layoutData(['title' => 'Pesanan' , 'data' => $this->data]);
     }
 
     public function create(){
-        $this->emit('openModal', 'pages.admin.order.modal.create');
+        $this->data = true ;
     }
 
     public function update($id){

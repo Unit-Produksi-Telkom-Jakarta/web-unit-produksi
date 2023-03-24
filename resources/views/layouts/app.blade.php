@@ -102,11 +102,14 @@
           </div>
 
 
-        @stack('modals')
-        @livewire('livewire-ui-modal')
+        {{-- @stack('modals')
+        @livewire('livewire-ui-modal') --}}
         @livewireScripts
+        @livewire('component.modals' , ['data' => $data])
     </body>
 </html>
+
+
 
 {{-- ModalMessageStatus --}}
 @if(session('success'))

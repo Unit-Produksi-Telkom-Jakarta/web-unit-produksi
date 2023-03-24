@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Pages\Admin\Order\Modal;
 
-use LivewireUI\Modal\ModalComponent;
+use Livewire\Component;
 use App\Models\Order;
 
-class Create extends ModalComponent
+class Create extends Component
 {
     public $orders;
 
@@ -29,7 +29,8 @@ class Create extends ModalComponent
 
     public function render()
     {
-        return view('livewire.pages.admin.order.modal.create');
+        return view('livewire.pages.admin.order.modal.create')->layout(
+                    'component.modals');
     }
 
     public function save(){
