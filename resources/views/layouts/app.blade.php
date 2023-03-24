@@ -140,6 +140,9 @@
   </label>
 
   <script>
+      function printInvoice(){
+       window.print();
+      }
       document.getElementById("success").checked = true;
   </script>
 @endif

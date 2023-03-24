@@ -15,7 +15,7 @@
         <div class="divider divider-horizontal h-full"></div>
         <div class="w-1/2 gap-2">
           <h2 class="card-title"><strong>Progress</strong></h2>
-          <div class="flex gap-2">
+          <div class="flex flex-wrap gap-2">
             <div class="flex flex-col gap-2">
                 <div>On progress : 25%</div>
                 <div>Compeleted : 25%</div>
