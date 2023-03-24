@@ -26,5 +26,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
         Route::get('/', Livewire\Pages\Admin\Order\Orders::class)->name('orders');
         Route::get('/export-import', Livewire\Pages\Admin\Order\ExportImport::class)->name('orders/export-import');
         Route::get('/receipt/{id}', Livewire\Pages\Admin\Order\Receipt::class);
+        Route::get('/invoice/{id}', Livewire\Pages\Admin\Order\Invoice::class);
     });
 });

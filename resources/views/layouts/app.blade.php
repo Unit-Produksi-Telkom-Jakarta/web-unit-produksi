@@ -61,8 +61,8 @@
                 </div>
                 <main class="w-full bg-slate-50">
                     {{ $slot }}
-                </main>
-            <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                  </main>
+                  {{-- <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden mt-5">Open drawer</label> --}}
             
             </div> 
             <div class="drawer-side ">
@@ -140,6 +140,9 @@
   </label>
 
   <script>
+      function printInvoice(){
+       window.print();
+      }
       document.getElementById("success").checked = true;
   </script>
 @endif
