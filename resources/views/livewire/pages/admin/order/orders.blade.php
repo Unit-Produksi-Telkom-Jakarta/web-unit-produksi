@@ -13,17 +13,20 @@
         <h2>Filter</h2>        
       </div>
       <div class="flex gap-5">
-        <select class="w-full max-w-xs select drop-shadow-md" wire:model="search">
+        <input type="text" placeholder="Search" class="input input-bordered w-full max-w-xs drop-shadow-md"  wire:model="search" wire:change="save()"/>
+        <select class="w-full max-w-xs select drop-shadow-md" wire:model="search_status">
           <option value="" selected>Status</option>
           <option value="1">Pending</option>
           <option value="2">Selesai</option>
           <option value="3">On Proses</option>
           <option value="4">Cancel</option>
         </select>
-        <select class="w-full max-w-xs select drop-shadow-md" wire:model="orderBy">
-          <option value="latest">Latest</option>
-          <option value="oldest">Oldest</option>
+        <select class="w-full max-w-xs select drop-shadow-md" wire:model="search_orderby">
+          <option value="desc">Latest</option>
+          <option value="asc">Oldest</option>
         </select>
+        <input type="date" placeholder="Start Estimation" class="input input-bordered w-full max-w-xs drop-shadow-md"  wire:model="search_start_estimation" wire:change="save()"/>
+        <input type="date" placeholder="End Estimation" class="input input-bordered w-full max-w-xs drop-shadow-md"  wire:model="search_end_estimation" wire:change="save()"/>
       </div>
     </div>
     <div class="card w-full bg-base-100 shadow-xl overflow-auto">

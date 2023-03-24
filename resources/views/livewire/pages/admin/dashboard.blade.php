@@ -1,7 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
 
-<div class="flex gap-5 p-5">
-  <div class="card w-[50%] bg-base-100 shadow-xl">
+<div class="flex flex-col md:flex-row gap-5 p-5">
+  <div class="card w-full md:w-1/2 bg-base-100 shadow-xl">
     <div class="card-body">
       <div class="flex justify-between">
         <div class="flex flex-col gap-2 w-1/2">
@@ -15,7 +15,7 @@
         <div class="divider divider-horizontal h-full"></div>
         <div class="w-1/2 gap-2">
           <h2 class="card-title"><strong>Progress</strong></h2>
-          <div class="flex gap-2">
+          <div class="flex gap-2 text-xs md:text-sm">
             <div class="flex flex-col gap-2">
                 <div>On progress : 25%</div>
                 <div>Compeleted : 25%</div>
@@ -29,21 +29,23 @@
       </div>
     </div>
   </div>
-  <div class="card w-[25%] bg-base-100 shadow-xl">
-    <div class="card-body">
-      <h2 class="card-title">Jumlah Karyawan</h2>
-      <div class="flex justify-between items-center">
-        <h3 class="text-4xl"><strong>30</strong></h3>
-        <img src="{{asset('images/user.png')}}" class="w-10" alt="Clipboard">
+  <div class="flex w-full md:w-1/2 gap-5">
+    <div class="card w-1/2 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Jumlah Karyawan</h2>
+        <div class="flex justify-between items-center">
+          <h3 class="text-4xl"><strong>30</strong></h3>
+          <img src="{{asset('images/user.png')}}" class="w-10" alt="Clipboard">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card w-[25%] bg-base-100 shadow-xl">
-    <div class="card-body">
-      <h2 class="card-title">Jumlah Karyawan</h2>
-      <div class="flex justify-between items-center">
-        <h3 class="text-4xl"><strong>30</strong></h3>
-        <img src="{{asset('images/user.png')}}" class="w-10" alt="Clipboard">
+    <div class="card w-1/2 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Jumlah Karyawan</h2>
+        <div class="flex justify-between items-center">
+          <h3 class="text-4xl"><strong>30</strong></h3>
+          <img src="{{asset('images/user.png')}}" class="w-10" alt="Clipboard">
+        </div>
       </div>
     </div>
   </div>
@@ -52,12 +54,12 @@
 <div class="flex p-5 w-full gap-5">
   <div class="card w-3/4 bg-base-100 shadow-xl">
     <div class="card-body">
-        <canvas id="myChart" class="w-1/2"></canvas>
+        <canvas id="myChart" class="w-full"></canvas>
     </div>
   </div>
   <div class="card w-1/4 h-1/2 bg-base-100 shadow-xl">
     <div class="card-body">
-        <canvas id="pieChart" class="w-1/2 h-1/2"></canvas>
+        <canvas id="pieChart" class="w-full"></canvas>
     </div>
   </div>
 </div>
