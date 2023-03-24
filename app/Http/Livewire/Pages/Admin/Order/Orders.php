@@ -19,23 +19,20 @@ class Orders extends Component
     use WithFileUploads;
 
     public $dataToUpload;
-    public $search = '';
-    public $orderBy = 'latest';
+    public $search;
+    public $search_status;
+    public $search_orderby = 'asc';
 
     public function render()
     {
-        sleep(1);
         $orders = new Order();
-
-        switch ($this->orderBy){
-            case 'latest':
-                $orders = $orders->orderBy('id', 'desc');
-            break;
-            default:
-                $orders = $orders->orderBy('id','asc');
-        }
+        $orders = $orders->where([
+            ['name' , 'LIKE' , "%{$this->search}%" , 'OR' ,
+             'email', 'LIKE' , "%{$this->search}%"] , 
+            ['status' , 'LIKE' , "%{$this->search_status}%"]])->orderBy('id', $this->search_orderby);
+            
         return view('livewire.pages.admin.order.orders',[
-            'orders' => $orders->where('status', 'LIKE', "%{$this->search}%")->paginate(5)
+            'orders' => $orders->paginate(5)
         ])->layoutData(['title' => 'Pesanan']);
     }
 
