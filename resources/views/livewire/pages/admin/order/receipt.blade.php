@@ -54,7 +54,7 @@
     window.print();
   }
 </script>
-<main class="w-3/4 h-full border border-gray-200 rounded-lg shadow-xl m-auto mt-10">
+<section class="w-3/4 h-auto border border-gray-200 rounded-lg shadow-xl m-auto mt-10">
   <div id="invoice" class="w-full h-full">
     <header class="flex justify-between align-top">
       <img src="{{ asset('/images/gelombang.png')}}" class="md:w-[400px] w-[200px]" id="wave" alt="gelombang">
@@ -104,10 +104,10 @@
         </div>
     </main>
   </div>
-  <div id="invoice-button" class="m-5">
+  <div id="invoice-button" class="m-5 bg-slate-50 w-full p-10">
     <button class="btn btn-primary flex justify-center mt-10" onclick="printInvoice()">print</button>
   </div>
-</main>
+</section>
 </body>
 </html>
 
