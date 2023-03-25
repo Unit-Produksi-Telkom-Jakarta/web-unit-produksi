@@ -11,10 +11,10 @@ class Receipt extends Component
 
     public function render()
     {
-        return view('livewire.pages.admin.order.receipt')->layoutData(['title' => 'Bukti Pemesanan']);;
+        return view('livewire.pages.admin.order.receipt')->layoutData(['title' => 'Bukti Pemesanan']);
     }
 
     public function mount($id){
-        $this->order = Order::find($id);;
+        $this->order = Order::find($id);
     }
 }

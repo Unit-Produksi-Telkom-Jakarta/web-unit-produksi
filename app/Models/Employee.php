@@ -18,4 +18,9 @@ class Employee extends Model
         'phone_number',
         'address',
     ];
+
+    public function order()
+    {
+        $this->hasMany(Order::class,'employee_id');
+    }
 }

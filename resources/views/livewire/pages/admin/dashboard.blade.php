@@ -57,11 +57,13 @@
         <canvas id="myChart" class="w-full"></canvas>
     </div>
   </div>
-  <div class="card w-1/4 h-1/2 bg-base-100 shadow-xl">
-    <div class="card-body">
-        <canvas id="pieChart" class="w-full"></canvas>
-    </div>
-  </div>
+  {{-- <div class="card w-1/4 h-1/2 bg-base-100 shadow-xl">
+    <div class="card-body"> --}}
+      <a href="/daily-report" class="btn btn" target="_blank">Download Daily Report</a>
+      
+        {{-- <canvas id="pieChart" class="w-1/2 h-1/2"></canvas> --}}
+    {{-- </div>
+  </div> --}}
 </div>
 
 <script>
