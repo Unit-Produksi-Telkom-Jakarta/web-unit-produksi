@@ -100,7 +100,7 @@
                         <div class="flex flex-col">
                             <div class="mt-10 mb-[80px] text-center">Koordinator Administrasi</div>
                             <div></div>
-                            <div class="text-center">youneedtha, S.Psi </div>
+                            <div class="text-center">Yunita Setioroso, S.Psi</div>
                         </div>
                         <div class="flex flex-col">
                             <div class="mt-10 mb-[80px] text-center">Petugas Admin</div>
