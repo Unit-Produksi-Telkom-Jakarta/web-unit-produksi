@@ -33,4 +33,9 @@ class Order extends Model
             $query->user_id = auth()->user()->id;
         });
     }
+
+    public function employee()
+    {
+        $this->belongsTo(Employee::class);
+    }
 }

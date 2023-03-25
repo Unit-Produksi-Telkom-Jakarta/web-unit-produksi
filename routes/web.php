@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
     Route::get('/', Livewire\Pages\Admin\Dashboard::class)->name('dashboard');
+    Route::get('/daily-report', Livewire\Pages\Admin\DailyReport::class);
 
     Route::prefix('orders')->group(function () {
         Route::get('/', Livewire\Pages\Admin\Order\Orders::class)->name('orders');
