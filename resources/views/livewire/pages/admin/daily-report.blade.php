@@ -45,6 +45,11 @@
             #wave {
                 width: 400px;
             }
+
+            table, th, td {
+                border: 2px solid black;
+                border-collapse: collapse;
+            }
         }
     </style>
 </head>
@@ -67,25 +72,25 @@
         }
     </script>
     <main class="w-3/4 h-full border border-gray-200 rounded-lg shadow-xl m-auto mt-10">
-      <header class="flex justify-between align-top">
-        <img src="{{ asset('/images/logo.png')}}" class="w-[100px] h-[100px]" id="logo" alt="logo_up" srcset="">
-      </header>
       <br>
         <div id="invoice" class="w-full h-full">
-            @foreach ($order as $order)
+            <header class="flex justify-between align-top">
+                <img src="{{ asset('/images/logo.png')}}" class="w-[100px] h-[100px]" id="logo" alt="logo_up" srcset="">
+            </header>
+            <h1 class="text-xl font-bold mb-5 text-center">Daily Report</h1>
+            <h1 class="text-sm mb-5 text-center">Tanggal : {{date_format(today(),"d-F-Y")}} </h1>
                 <main class="p-5 w-full">
-                    <h1 class="text-xl font-bold mb-5 text-center">Daily Report</h1>
-                    <h1 class="text-sm mb-5 text-center">Tanggal : {{ $order->created_at->format('d-F-Y') }}</h1>
-                    <table class="mb-10 border-collapse border border-slate-500 w-full">
-                        <thead class="text-center">
+                    <table class="mb-10 w-full" id="borderdaily">
+                        <tr class="text-center">
                             <th class="border">Id</th>
                             <th class="border">Nama</th>
                             <th class="border">No. Handphone</th>
                             <th class="border">Estimasi mulai</th>
                             <th class="border">Estimasi Selesai</th>
                             <th class="border">Request</th>
-                        </thead>
+                        </tr>
                         <tbody>
+                        @foreach ($order as $order)
                             <tr>
                                 <td class="border">{{ $order->id }}</td>
                                 <td class="border">{{ $order->name }}</td>
@@ -94,22 +99,22 @@
                                 <td class="border">{{ $order->end_estimation }}</td>
                                 <td class="border">{{ $order->request }}</td>
                             </tr>
+                        @endforeach()
                         </tbody>
                     </table>
-                    <div class="flex justify-between w-full pr-[50px]">
-                        <div class="flex flex-col">
-                            <div class="mt-10 mb-[80px] text-center">Koordinator Administrasi</div>
-                            <div></div>
-                            <div class="text-center">youneedtha, S.Psi </div>
-                        </div>
-                        <div class="flex flex-col">
-                            <div class="mt-10 mb-[80px] text-center">Petugas Admin</div>
-                            <div></div>
-                            <div class="text-center">{{ auth()->user()->name }}</div>
-                        </div>
-                    </div>
                 </main>
-            @endforeach()
+            <div class="flex justify-between w-full pr-[50px]">
+                <div class="flex flex-col ml-6">
+                    <div class="mt-10 mb-[80px] text-center">Koordinator Administrasi</div>
+                    <div></div>
+                    <div class="text-center">Yunita Setioroso, S.Psi </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="mt-10 mb-[80px] text-center">Petugas Admin</div>
+                    <div></div>
+                    <div class="text-center">{{ auth()->user()->name }}</div>
+                </div>
+            </div>
         </div>
         <div id="invoice-button" class="m-5">
             <button class="btn btn-primary flex justify-center mt-10" onclick="printInvoice()">Print</button>
