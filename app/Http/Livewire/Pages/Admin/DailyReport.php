@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Livewire\Pages\Admin;
-
+use Illuminate\Support\Carbon;
 use App\Models\Order;
 use Livewire\Component;
 
 class DailyReport extends Component
 {
     public $order;
+    public $date;
 
     public function downloadReport()
     {
@@ -28,5 +29,6 @@ class DailyReport extends Component
             ['created_at', '<=', date('Y-m-d').' 23:59:59'],
         ];
         $this->order = Order::where($conditions)->get();
+        $this->date = Carbon::now()->locale('id')->isoFormat('D MMMM Y');
     }
 }
