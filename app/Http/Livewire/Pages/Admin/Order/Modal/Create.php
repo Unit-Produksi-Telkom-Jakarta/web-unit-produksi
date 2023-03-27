@@ -8,6 +8,9 @@ use App\Models\Order;
 class Create extends ModalComponent
 {
     public $orders;
+    public $items ; 
+    public $inputItems = [];
+    public $count = 1 ;
 
     protected $rules=[
         'orders.name'                       => 'required',
@@ -21,6 +24,12 @@ class Create extends ModalComponent
         'orders.status'                     => 'required',
         'orders.request'                    => 'required',
         'orders.price'                      => 'required',
+        'items.quantity.0'                  => 'required',
+        'items.description.0'               => 'required',
+        'items.price.0'                     => 'required',
+        'items.quantity.*'                  => 'required',
+        'items.description.*'               => 'required',
+        'items.price.*'                     => 'required',
     ];
 
     public function mount(){
@@ -42,6 +51,17 @@ class Create extends ModalComponent
 
     public function resetOrder(){
         $this->reset('orders');
+    }
+
+    public function addItems()
+    {
+        $count = $this->count++ ;
+        array_push($this->inputItems ,$count);
+    }
+
+    public function removeItems($i)
+    {
+        unset($this->inputItems[$i]);
     }
 
 }

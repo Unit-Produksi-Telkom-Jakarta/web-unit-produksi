@@ -132,6 +132,92 @@
             </label>
         @enderror
     </div>
+    <div class="divider"></div> 
+    <div class="flex justify-between items-center mt-2">
+        <div>Items</div>
+        <div><button class="btn btn-sm btn-primary" wire:click.prevent="addItems()">tambah item</button></div>
+    </div>
+    <div class="card w-full bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"></h2>
+          <div class="form-control w-full">
+            <label class="label">
+            <span class="label-text-alt">Kuantitas</span>
+            </label>
+            <input type="number" wire:model="items.quantity.0" placeholder="Kuantitas" class="input input-bordered w-full" />
+            @error('items.quantity.0')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+            @enderror
+        </div>
+        <div class="form-control w-full">
+            <label class="label">
+            <span class="label-text-alt">Deskripsi</span>
+            </label>
+            <input type="text" wire:model="items.description.0" placeholder="Deskripsi" class="input input-bordered w-full" />
+            @error('items.description.0')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+            @enderror
+        </div>
+        <div class="form-control w-full">
+            <label class="label">
+            <span class="label-text-alt">Harga</span>
+            </label>
+            <input type="number" wire:model="items.price.0" placeholder="Harga" class="input input-bordered w-full" />
+            @error('items.price.0')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+            @enderror
+        </div>
+        </div>
+      </div>
+      @foreach ($inputItems as $key => $value)
+      <div class="card w-full bg-base-100 shadow-xl mt-5">
+        <div class="card-body">
+          <h2 class="card-title">{{$loop->iteration}}</h2>
+          <div class="form-control w-full">
+            <label class="label">
+            <span class="label-text-alt">Kuantitas</span>
+            </label>
+            <input type="number" wire:model="items.quantity.{{$value}}" placeholder="Kuantitas" class="input input-bordered w-full" />
+            @error('items.quantity.{{$value}}')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+            @enderror
+        </div>
+        <div class="form-control w-full">
+            <label class="label">
+            <span class="label-text-alt">Deskripsi</span>
+            </label>
+            <input type="text" wire:model="items.description.{{$value}}" placeholder="Deskripsi" class="input input-bordered w-full" />
+            @error('items.description.{{$value}}')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+            @enderror
+        </div>
+        <div class="form-control w-full">
+            <label class="label">
+            <span class="label-text-alt">Harga</span>
+            </label>
+            <input type="number" wire:model="items.price.{{$value}}" placeholder="Harga" class="input input-bordered w-full" />
+            @error('items.price.{{$value}}')
+                <label class="label">
+                    <span class="label-text-alt text-red-600">{{ $message }}</span>
+                </label>
+            @enderror
+        </div>
+        <div class="flex justify-end">
+            <button class="btn btn-sm btn-error mt-2" wire:click.prevent="removeItems({{$key}})">hapus</button>
+        </div>
+        </div>
+      </div>
+      @endforeach
     @error('orders')
     <h1>{{ $message }}</h1>
     @enderror
